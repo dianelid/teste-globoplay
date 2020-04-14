@@ -1,0 +1,10 @@
+.menuItem{
+    position: relative;
+    width: 100%;
+    height: 20%;
+}
+
+.titleMenu{
+    text-align: center;
+    padding-top: 12%;
+}
