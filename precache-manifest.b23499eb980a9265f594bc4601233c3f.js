@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1580dfa615c6be39e9fad5a80ebb639",
+    "revision": "b74e617cdacb41031a83b030b0d2a9ed",
     "url": "/teste-globoplay/index.html"
   },
   {
-    "revision": "b64f487385f64fd835b3",
-    "url": "/teste-globoplay/static/css/main.cbd1b90e.chunk.css"
+    "revision": "9fd304850a3c21e2909c",
+    "url": "/teste-globoplay/static/css/main.5cc55cd3.chunk.css"
   },
   {
     "revision": "0b41b9c5902425c78205",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/teste-globoplay/static/js/2.8a874b7d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b64f487385f64fd835b3",
-    "url": "/teste-globoplay/static/js/main.876ec132.chunk.js"
+    "revision": "9fd304850a3c21e2909c",
+    "url": "/teste-globoplay/static/js/main.148d48d0.chunk.js"
   },
   {
     "revision": "6797e8f1afa7a7d4010f",
