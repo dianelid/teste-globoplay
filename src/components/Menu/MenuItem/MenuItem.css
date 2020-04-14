@@ -8,3 +8,8 @@
     text-align: center;
     padding-top: 12%;
 }
+
+.focusedItem{
+    background-color: #ffffff;
+    color: #000000;
+}

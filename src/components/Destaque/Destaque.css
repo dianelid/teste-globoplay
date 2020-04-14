@@ -1,7 +1,31 @@
 .destaque{
     position: relative;
-    background-color: yellow;
     width: 90%;
-    height: 70%;
+    height: 52.2%;
     float: right;
+    padding-top: 10%;
+}
+
+.logoProg{
+    margin-left: 2%;
+    width: 20%;
+}
+
+.descriptionProg{
+    width: 40%;
+    height: 15%;
+    padding: 4% 2% 5% 2%;
+}
+
+.buttonProg{
+    width: 15%;
+    height: 13%;
+    margin-left: 2%;
+    float: left;
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    text-align: center;
+    padding-top: 1%;
+    font-weight: 600;
 }

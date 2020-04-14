@@ -1,7 +1,11 @@
 .app {
   position:relative;
   font-family: Arial;
-  color: #ffffff;
+  color: #f1f1f1;
+  background-image: url("https://s2.glbimg.com/1liph2qog-AGmgGI0hXMckn_Yb4=/0x720/https://s2.glbimg.com/T7K_c4W_to0gJiNRgJIBpJVBf2I=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2020/u/a/WCTZoCS3ulpaPbztyTlw/2020-748-realities-big-brother-brasil-20-tv-globo-background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-blend-mode: exclusion;
   background-color: #666768;
 }
 
@@ -9,12 +13,14 @@
 @media screen and (max-width: 1280px){
   .app{width: 1280px; height: 720px;}
   .titleMenu{font-size: 23.33px;}
-  .descriptionProg{font-size: 26.66px;}
+  .descriptionProg{font-size: 25.33px;}
+  .buttonProg{font-size: 26.66px;}
 }
 
 /*Full HD screen*/
 @media screen and (min-width: 1281px){
   .app{width: 1920px; height: 1080px;}
   .titleMenu{font-size: 35px;}
-  .descriptionProg{font-size: 40px;}
+  .descriptionProg{font-size: 38px;}
+  .buttonProg{font-size: 40px;}
 }
