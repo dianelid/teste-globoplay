@@ -1,0 +1,7 @@
+.destaque{
+    position: relative;
+    background-color: yellow;
+    width: 90%;
+    height: 70%;
+    float: right;
+}

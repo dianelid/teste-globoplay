@@ -1,0 +1,14 @@
+.app {
+  position:relative;
+  font-family: Arial;
+}
+
+/*HD screen*/
+@media screen and (max-width: 1280px){
+  .app{width: 1280px; height: 720px;}
+}
+
+/*Full HD screen*/
+@media screen and (min-width: 1281px){
+  .app{width: 1920px; height: 1080px;}
+}
