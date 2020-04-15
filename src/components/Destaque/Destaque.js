@@ -13,28 +13,69 @@ class Destaque extends Component {
       )
     }
 
-    componentDidUpdate() {
-      if(this.props.scene === 'destaque'){
+    handleKeyPress = (event) => {
+      if (this.props.scene === 'destaque' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
+        event.preventDefault();
+        this.navigationDestaque(event.keyCode);
+        console.log("destaque: "+event.keyCode);
+      }
+    }
+ 
+    navigationDestaque(keyCode){
         const idButton1 = "button1", idButton2 = "button2", classFocused = "focusedItem";
 
-        if (this.props.keyCode === 39){ //right
-          this.onFocus(idButton1, idButton2, classFocused);}
-        else 
-        if (this.props.keyCode === 37) { //left
-          if(document.getElementById(idButton1).classList.contains(classFocused)){
-            document.getElementById(idButton1).classList.remove(classFocused); //desfoca para focar no menu
-            document.getElementById("menu").style.width = '25%'; //expande o menu
-            this.props.callback('menu'); //vai para o menu
-          }
+        if (keyCode === 39) //right
+          this.onFocus(idButton1, idButton2, classFocused); //foca no botão 2
+        else if (keyCode === 37) { //left
+          if(!document.getElementById(idButton1).classList.contains(classFocused))
+            this.onFocus(idButton2, idButton1, classFocused); //foca no botão 1   
           else
-            this.onFocus(idButton2, idButton1, classFocused);    
-        }
-      } 
+            this.goToMenu(idButton1, classFocused); //foca no menu
+        } else if(keyCode === 40) //down
+            this.goToTrilho();
     }
 
     onFocus(elementUnFocus, elementFocus, classFocused){
       document.getElementById(elementUnFocus).classList.remove(classFocused);
       document.getElementById(elementFocus).classList.add(classFocused);
+    }
+
+    goToMenu(idButton1, classFocused){
+      this.focusOnMenu(idButton1, classFocused);
+      this.props.callback('menu'); //vai para o menu
+      document.removeEventListener('keydown', this.handleKeyPress, true);
+    }
+
+    focusOnMenu(idButton1, classFocused){
+      document.getElementById(idButton1).classList.remove(classFocused); //remove o foco atual
+      document.getElementById("menu").style.width = '25%'; //expande o menu
+      document.getElementsByClassName("menuItem")[1].classList.add(classFocused); //foca no menu item 2
+    }
+
+    goToTrilho(){
+      this.expandTrilho();
+      this.props.callback('trilho'); //vai para o trilho
+      document.removeEventListener('keydown', this.handleKeyPress, true);
+    }
+
+    expandTrilho(){
+      document.getElementsByClassName("destaque")[0].style.display = "none";
+      document.getElementsByClassName("videoDescription")[0].style.display = "block";
+      document.getElementsByClassName("focusVideoItem")[0].style.display = "block";
+      document.getElementsByClassName("trilho")[0].style.height = "100%";
+      document.getElementsByClassName("containerListVideos")[0].style.height = "50%";
+    }
+
+    componentDidMount() {
+      document.addEventListener('keydown', this.handleKeyPress, true);
+    }
+    
+    componentWillUnmount() {
+      document.removeEventListener('keydown', this.handleKeyPress, true);
+    }
+
+    componentDidUpdate() {
+      document.addEventListener('keydown', this.handleKeyPress, true);
     }
   }
 

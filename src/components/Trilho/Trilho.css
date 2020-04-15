@@ -2,9 +2,26 @@
     position: relative;
     width: 90%;
     height: 30%;
+    /* height: 100%; */
     float: right;
+    
+}
+
+.containerListVideos{
+    height: 100%;
+    /* height: 50%; */
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,0.48269730255383403) 50%, rgba(255,255,255,0) 100%);
+}
+
+.videoDescription{
+    position: relative;
+    width: 90%;
+    height: 34%;
+    padding-top: 10%;
+    display: none;
+    padding-left: 2%;
+    font-weight: 600;
 }
 
 .titleListVideos{
@@ -17,4 +34,16 @@
     position: relative;
     left: 0px;
     height: 80%;
+}
+
+.focusVideoItem{
+    position: absolute;
+    top: 59.5%;
+    border-style: solid;
+    border-color: #ffffff;
+    display: none;
+}
+
+.category{
+    padding-top: 3%;
 }

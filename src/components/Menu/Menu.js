@@ -3,7 +3,11 @@ import './Menu.css';
 import MenuItem from './MenuItem/MenuItem';
 
 class Menu extends Component {
-  render() {
+    state = {
+        focusedItemIndex: 1
+    }
+
+    render() {
         return (
         <div id="menu" className="menu">
             <div className="line"></div>
@@ -18,38 +22,63 @@ class Menu extends Component {
         )
     }
 
-    componentDidUpdate() {
-      if (this.props.scene === 'menu'){
+    handleKeyPress = (event) => {
+      if (this.props.scene === 'menu' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
+        event.preventDefault();
+        this.navigationMenu(event.keyCode)
+        console.log("Menu: "+event.keyCode);
+      }
+    }
+
+    navigationMenu(keyCode) {
         const classFocused = "focusedItem";
         const itens = document.getElementsByClassName("menuItem"); //recupera a lista de itens do menu
-        let index = this.recoverFocusedItem(itens, classFocused); //recupera o índice do item do menu focado no momento
-        itens[index].classList.remove(classFocused); //remove o foco atual
-
-        if (this.props.keyCode === 40 || this.props.keyCode === 38 || this.props.keyCode === 37){ //down, up ou left
-          index = this.updateIndexItem(itens.length, index); //atualiza o índice para o novo item a ser focado
-          itens[index].classList.add(classFocused); //foca no novo item de menu
-        } else if (this.props.keyCode === 39){ //right
-          document.getElementById("menu").style.width = '10%'; //recolhe o menu 
-          this.props.callback('destaque'); //vai para destaque
-        }
-      } 
+        itens[this.state.focusedItemIndex].classList.remove(classFocused); //remove o foco atual
+        
+        if (keyCode === 40 || keyCode === 38 || keyCode === 37){ //down, up ou left
+          this.updateIndexItem(itens.length, keyCode); //atualiza o índice para o novo item a ser focado
+          itens[this.state.focusedItemIndex].classList.add(classFocused); //foca no novo item de menu
+        } else if (keyCode === 39) //right
+          this.exitMenu(classFocused);
     }
 
-    recoverFocusedItem = (itens, classFocused) => {
-      for (let i = 0; i < itens.length; i++) {
-        if(itens[i].classList.contains(classFocused))
-          return i;       
+    updateIndexItem = (size, keyCode) => {
+      let newIndex = this.state.focusedItemIndex;
+      
+      if(keyCode === 40)
+        newIndex = this.state.focusedItemIndex + 1 === size ? 0 : this.state.focusedItemIndex + 1;
+      else if(keyCode === 38)
+        newIndex = this.state.focusedItemIndex - 1 === -1 ? size-1 : this.state.focusedItemIndex - 1;
+      
+      if(this.state.focusedItemIndex !== newIndex)
+        this.setState({
+          focusedItemIndex : newIndex
+        })  
+    }
+
+    exitMenu(classFocused) {
+      document.getElementById("menu").style.width = '10%'; //recolhe o menu 
+      document.removeEventListener('keydown', this.handleKeyPress, true);
+      
+      this.setState({
+        focusedItemIndex : 1 //reset index
+      })
+      
+      if(document.getElementsByClassName("destaque")[0]) {
+        document.getElementById("button1").classList.add(classFocused); //foca em destaque
+        this.props.callback('destaque'); 
+      } else {
+        document.getElementsByClassName("focusVideoItem")[0].style.display = "block"; //foca no trilho
+        this.props.callback('trilho');
       }
-
-      return 1;
     }
 
-    updateIndexItem = (size, index) => {
-      if(this.props.keyCode === 40)
-        return index+1 === size ? 0 : index+1;
-      else if(this.props.keyCode === 38)
-        return index-1 === -1 ? size-1 : index-1;
-      return index;
+    componentDidUpdate() {
+      document.addEventListener('keydown', this.handleKeyPress, true);
+    }
+    
+    componentWillUnmount() {
+      document.removeEventListener('keydown', this.handleKeyPress, true);
     }
   }
   

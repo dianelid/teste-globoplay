@@ -28,7 +28,11 @@
   .descriptionProg{font-size: 25.33px;}
   .buttonProg{font-size: 26.66px;}
   .titleListVideos{font-size: 23.33px;}
-  .categoriaVideo{font-size: 18.66px;}
+  .videoCategory{font-size: 18.66px;}
+  .videoItem{width: 264.66px; height: 172.8px; margin-left: 29.33px;}
+  .focusVideoItem{left: 24.66px; width: 266px; height: 174px; border-width: 4px;}
+  .videoDescription{font-size: 23.33px;}
+  .category{font-size: 33.33px;}
 }
 
 /*Full HD screen*/
@@ -39,5 +43,9 @@
   .descriptionProg{font-size: 38px;}
   .buttonProg{font-size: 40px;}
   .titleListVideos{font-size: 35px;}
-  .categoriaVideo{font-size: 28px;}
+  .videoCategory{font-size: 28px;}
+  .videoItem{width: 397px; height: 259.2px; margin-left: 44px;}
+  .focusVideoItem{left: 37px; width: 399px; height: 261px; border-width: 6px;}
+  .videoDescription{font-size: 35px;}
+  .category{font-size: 50px;}
 }
