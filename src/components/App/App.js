@@ -34,6 +34,7 @@ class App extends Component {
 
     return (
       <div className="app">
+        <div className="logoApp">globoplay</div>
         <Destaque logo={logo} description={textDescription} keyCode={this.state.key} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
         <Trilho/>
         <Menu keyCode={this.state.key} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>

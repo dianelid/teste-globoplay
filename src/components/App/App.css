@@ -1,4 +1,6 @@
 .app {
+  margin: 0;
+	padding: 0;
   position:relative;
   font-family: Arial;
   color: #f1f1f1;
@@ -9,18 +11,33 @@
   background-color: #666768;
 }
 
+.logoApp{
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 10%;
+  height: 5%;
+  font-weight: 600;
+}
+
 /*HD screen*/
 @media screen and (max-width: 1280px){
   .app{width: 1280px; height: 720px;}
+  .logoApp{font-size: 26.66px;}
   .titleMenu{font-size: 23.33px;}
   .descriptionProg{font-size: 25.33px;}
   .buttonProg{font-size: 26.66px;}
+  .titleListVideos{font-size: 23.33px;}
+  .categoriaVideo{font-size: 18.66px;}
 }
 
 /*Full HD screen*/
 @media screen and (min-width: 1281px){
   .app{width: 1920px; height: 1080px;}
+  .logoApp{font-size: 40px;}
   .titleMenu{font-size: 35px;}
   .descriptionProg{font-size: 38px;}
   .buttonProg{font-size: 40px;}
+  .titleListVideos{font-size: 35px;}
+  .categoriaVideo{font-size: 28px;}
 }

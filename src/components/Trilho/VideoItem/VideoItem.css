@@ -1,0 +1,12 @@
+.videoItem{
+    width: 23%;
+    height: 100%;
+    float: left;
+    margin-left: 2%;
+    background-color: turquoise;
+}
+
+.categoriaVideo{
+    font-weight: bold;
+    padding: 50% 0 0 5%;
+}

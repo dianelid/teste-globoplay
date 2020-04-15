@@ -1,7 +1,20 @@
 .trilho{
     position: relative;
-    background-color: red;
     width: 90%;
     height: 30%;
     float: right;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.48269730255383403) 50%, rgba(255,255,255,0) 100%);
+}
+
+.titleListVideos{
+    width: 98%;
+    height: 20%;
+    margin-left: 2%;
+}
+
+.listVideos{
+    position: relative;
+    left: 0px;
+    height: 80%;
 }
