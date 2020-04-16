@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/teste-globoplay/static/css/main.a22cf07d.chunk.css",
-    "main.js": "/teste-globoplay/static/js/main.ef22a291.chunk.js",
-    "main.js.map": "/teste-globoplay/static/js/main.ef22a291.chunk.js.map",
+    "main.js": "/teste-globoplay/static/js/main.fe7ce89c.chunk.js",
+    "main.js.map": "/teste-globoplay/static/js/main.fe7ce89c.chunk.js.map",
     "runtime-main.js": "/teste-globoplay/static/js/runtime-main.811c6199.js",
     "runtime-main.js.map": "/teste-globoplay/static/js/runtime-main.811c6199.js.map",
     "static/js/2.8a874b7d.chunk.js": "/teste-globoplay/static/js/2.8a874b7d.chunk.js",
     "static/js/2.8a874b7d.chunk.js.map": "/teste-globoplay/static/js/2.8a874b7d.chunk.js.map",
     "index.html": "/teste-globoplay/index.html",
-    "precache-manifest.650486e34d6dc5b45ebc94587dee389c.js": "/teste-globoplay/precache-manifest.650486e34d6dc5b45ebc94587dee389c.js",
+    "precache-manifest.7ddb169fe2f261e4e92f597304f01835.js": "/teste-globoplay/precache-manifest.7ddb169fe2f261e4e92f597304f01835.js",
     "service-worker.js": "/teste-globoplay/service-worker.js",
     "static/css/main.a22cf07d.chunk.css.map": "/teste-globoplay/static/css/main.a22cf07d.chunk.css.map",
     "static/js/2.8a874b7d.chunk.js.LICENSE.txt": "/teste-globoplay/static/js/2.8a874b7d.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.811c6199.js",
     "static/js/2.8a874b7d.chunk.js",
     "static/css/main.a22cf07d.chunk.css",
-    "static/js/main.ef22a291.chunk.js"
+    "static/js/main.fe7ce89c.chunk.js"
   ]
 }
