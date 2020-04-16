@@ -2,11 +2,13 @@
     position: relative;
     width: 100%;
     height: 20%;
+    display: table;
 }
 
 .titleMenu{
     text-align: center;
-    padding-top: 12%;
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .focusedItem{

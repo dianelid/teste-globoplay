@@ -4,17 +4,6 @@ import './Destaque.css';
 const idButton1 = "button1", idButton2 = "button2", classFocused = "focusedItem";
 
 class Destaque extends Component {
-    render() {
-      return (
-        <div className="destaque">
-          <img className="logoProg" src={this.props.logo} alt=""/>
-          <div className="descriptionProg">{this.props.description}</div>
-          <div id={idButton1} className="buttonProg focusedItem">Assista</div>
-          <div id={idButton2} className="buttonProg">Veja mais</div>
-        </div>
-      )
-    }
-
     handleKeyPress = (event) => {
       if (this.props.scene === 'destaque' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
         event.preventDefault();
@@ -47,7 +36,7 @@ class Destaque extends Component {
 
     focusOnMenu(){
       document.getElementById(idButton1).classList.remove(classFocused); //remove o foco atual
-      document.getElementById("menu").style.width = '25%'; //expande o menu
+      document.getElementById("menu").classList.add("is-nav-open"); //expande o menu
       document.getElementsByClassName("menuItem")[1].classList.add(classFocused); //foca no menu item 2
     }
 
@@ -76,6 +65,17 @@ class Destaque extends Component {
 
     componentDidUpdate() {
       document.addEventListener('keydown', this.handleKeyPress, true);
+    }
+
+    render() {
+      return (
+        <div className="destaque">
+          <img className="logoProg" src={this.props.logo} alt=""/>
+          <div className="descriptionProg">{this.props.description}</div>
+          <div id={idButton1} className="buttonProg focusedItem">Assista</div>
+          <div id={idButton2} className="buttonProg">Veja mais</div>
+        </div>
+      )
     }
   }
 

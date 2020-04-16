@@ -9,21 +9,6 @@ class Menu extends Component {
         focusedItemIndex: 1
     }
 
-    render() {
-        return (
-        <div id="menu" className="menu">
-            <div className="line"></div>
-            <div className="areaMenu">
-                <MenuItem title="Busca"/>
-                <MenuItem title="Início"/>
-                <MenuItem title="Agora na Globo"/>
-                <MenuItem title="Categorias"/>
-                <MenuItem title="Minha Conta"/>
-            </div>
-        </div>
-        )
-    }
-
     handleKeyPress = (event) => {
       if (this.props.scene === 'menu' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
         event.preventDefault();
@@ -57,7 +42,7 @@ class Menu extends Component {
     }
 
     exitMenu() {
-      document.getElementById("menu").style.width = '10%'; //recolhe o menu 
+      document.getElementById("menu").classList.remove("is-nav-open"); //expande o menu
       document.removeEventListener('keydown', this.handleKeyPress, true);
       
       this.setState({
@@ -79,6 +64,21 @@ class Menu extends Component {
     
     componentWillUnmount() {
       document.removeEventListener('keydown', this.handleKeyPress, true);
+    }
+
+    render() {
+      return (
+        <div id="menu" className="menu">
+            <div className="line"></div>
+            <div className="areaMenu">
+                <MenuItem title="Busca"/>
+                <MenuItem title="Início"/>
+                <MenuItem title="Agora na Globo"/>
+                <MenuItem title="Categorias"/>
+                <MenuItem title="Minha Conta"/>
+            </div>
+        </div>
+        )
     }
   }
   
