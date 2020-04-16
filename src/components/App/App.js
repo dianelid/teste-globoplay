@@ -6,7 +6,32 @@ import Trilho from '../Trilho/Trilho';
 
 class App extends Component {
   state = {
-    focusedScene: 'destaque'
+    focusedScene: "destaque",
+    bgApp: "https://s2.glbimg.com/1liph2qog-AGmgGI0hXMckn_Yb4=/0x720/https://s2.glbimg.com/T7K_c4W_to0gJiNRgJIBpJVBf2I=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2020/u/a/WCTZoCS3ulpaPbztyTlw/2020-748-realities-big-brother-brasil-20-tv-globo-background.jpg",
+    logo: "https://logodownload.org/wp-content/uploads/2018/04/bbb-logo-big-brother-brasil-logo-16.png",
+    textDescription: "Acompanhe 24h ao vivo a casa mais vigiada do Brasil",
+    videos: [
+      {
+          category: "sala de estar",
+          bg: "http://ohoje.com/public/imagens/fotos/amp/6f9b95048fe1e9db9b37cf5c9abf5815.jpg"
+      },
+      {
+        category: "academia",
+        bg: "http://ohoje.com/public/imagens/fotos/amp/821b16ac92dafe68c9c49c536a99664d.jpg"
+      },
+      {
+        category: "chuveiro",
+        bg: "http://ohoje.com/public/imagens/fotos/amp/8c0436f3dd10fc86b966c456069a649b.jpg"
+      },
+      {
+          category: "varanda",
+          bg: "http://www.ohoje.com/public/imagens/fotos/amp/e2d6b5f3dedf827825531f160eb1428d.jpg"
+      },
+      {
+        category: "piscina",
+        bg: "http://rotanews176.com.br/wp-content/uploads/2019/01/1-123.jpg"
+      }
+    ]
   }
   
   updateScene(scene) {
@@ -16,15 +41,22 @@ class App extends Component {
       })
   }
 
-  render() {
-    const logo = "https://logodownload.org/wp-content/uploads/2018/04/bbb-logo-big-brother-brasil-logo-16.png";
-    const textDescription = "Acompanhe 24h ao vivo a casa mais vigiada do Brasil";
+  // componentWillUpdate(){
+  //   let bg = "https://s2.glbimg.com/1liph2qog-AGmgGI0hXMckn_Yb4=/0x720/https://s2.glbimg.com/T7K_c4W_to0gJiNRgJIBpJVBf2I=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2020/u/a/WCTZoCS3ulpaPbztyTlw/2020-748-realities-big-brother-brasil-20-tv-globo-background.jpg";
 
+  //   if(this.state.focusedScene === "trilho")
+  //     bg = this.state.videos[0].bg;
+    
+  //   if(this.state.bgApp !== bg)
+  //     this.setState({bgApp: bg});
+  // }
+
+  render() {
     return (
-      <div className="app">
-        <div className="logoApp">globoplay</div>
-        <Destaque logo={logo} description={textDescription} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
-        <Trilho/>
+      <div id="app" className="app" style={{backgroundImage: "url("+this.state.bgApp+")"}}>
+        <div className="titleApp">globoplay</div>
+        <Destaque logo={this.state.logo} description={this.state.textDescription} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
+        <Trilho videos={this.state.videos} bgApp={this.state.bgApp} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
         <Menu scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
       </div>
     )

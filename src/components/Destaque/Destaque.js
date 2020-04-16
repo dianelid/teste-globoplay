@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './Destaque.css';
 
+const idButton1 = "button1", idButton2 = "button2", classFocused = "focusedItem";
+
 class Destaque extends Component {
     render() {
       return (
         <div className="destaque">
           <img className="logoProg" src={this.props.logo} alt=""/>
           <div className="descriptionProg">{this.props.description}</div>
-          <div id="button1" className="buttonProg focusedItem">Assista</div>
-          <div id="button2" className="buttonProg">Veja mais</div>
+          <div id={idButton1} className="buttonProg focusedItem">Assista</div>
+          <div id={idButton2} className="buttonProg">Veja mais</div>
         </div>
       )
     }
@@ -17,36 +19,33 @@ class Destaque extends Component {
       if (this.props.scene === 'destaque' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
         event.preventDefault();
         this.navigationDestaque(event.keyCode);
-        console.log("destaque: "+event.keyCode);
       }
     }
  
     navigationDestaque(keyCode){
-        const idButton1 = "button1", idButton2 = "button2", classFocused = "focusedItem";
-
         if (keyCode === 39) //right
-          this.onFocus(idButton1, idButton2, classFocused); //foca no botão 2
+          this.onFocus(idButton1, idButton2); //foca no botão 2
         else if (keyCode === 37) { //left
           if(!document.getElementById(idButton1).classList.contains(classFocused))
-            this.onFocus(idButton2, idButton1, classFocused); //foca no botão 1   
+            this.onFocus(idButton2, idButton1); //foca no botão 1   
           else
-            this.goToMenu(idButton1, classFocused); //foca no menu
+            this.goToMenu(); //foca no menu
         } else if(keyCode === 40) //down
             this.goToTrilho();
     }
 
-    onFocus(elementUnFocus, elementFocus, classFocused){
+    onFocus(elementUnFocus, elementFocus){
       document.getElementById(elementUnFocus).classList.remove(classFocused);
       document.getElementById(elementFocus).classList.add(classFocused);
     }
 
-    goToMenu(idButton1, classFocused){
-      this.focusOnMenu(idButton1, classFocused);
+    goToMenu(){
+      this.focusOnMenu();
       this.props.callback('menu'); //vai para o menu
       document.removeEventListener('keydown', this.handleKeyPress, true);
     }
 
-    focusOnMenu(idButton1, classFocused){
+    focusOnMenu(){
       document.getElementById(idButton1).classList.remove(classFocused); //remove o foco atual
       document.getElementById("menu").style.width = '25%'; //expande o menu
       document.getElementsByClassName("menuItem")[1].classList.add(classFocused); //foca no menu item 2
@@ -54,6 +53,7 @@ class Destaque extends Component {
 
     goToTrilho(){
       this.expandTrilho();
+      document.getElementById(idButton2).classList.remove(classFocused); //remove o foco atual
       this.props.callback('trilho'); //vai para o trilho
       document.removeEventListener('keydown', this.handleKeyPress, true);
     }

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './VideoItem.css';
 
 class VideoItem extends Component {
-  render() {
+    render() {
         return (
-        <div id="videoItem" className="videoItem" style={{backgroundColor: this.props.video.bg}}>
+        <div id="videoItem" className="videoItem" style={{backgroundImage: "url("+this.props.video.bg+")"}}>
             <div className="videoCategory">
-                {this.props.video.categoria}
+                {this.props.video.category}
             </div>
         </div>
         )
     }
-  }
+}
 
 export default VideoItem;

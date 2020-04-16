@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Menu.css';
 import MenuItem from './MenuItem/MenuItem';
 
+const classFocused = "focusedItem";
+
 class Menu extends Component {
     state = {
         focusedItemIndex: 1
@@ -25,13 +27,11 @@ class Menu extends Component {
     handleKeyPress = (event) => {
       if (this.props.scene === 'menu' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
         event.preventDefault();
-        this.navigationMenu(event.keyCode)
-        console.log("Menu: "+event.keyCode);
+        this.navigationMenu(event.keyCode);
       }
     }
 
     navigationMenu(keyCode) {
-        const classFocused = "focusedItem";
         const itens = document.getElementsByClassName("menuItem"); //recupera a lista de itens do menu
         itens[this.state.focusedItemIndex].classList.remove(classFocused); //remove o foco atual
         
@@ -39,7 +39,7 @@ class Menu extends Component {
           this.updateIndexItem(itens.length, keyCode); //atualiza o índice para o novo item a ser focado
           itens[this.state.focusedItemIndex].classList.add(classFocused); //foca no novo item de menu
         } else if (keyCode === 39) //right
-          this.exitMenu(classFocused);
+          this.exitMenu();
     }
 
     updateIndexItem = (size, keyCode) => {
@@ -56,7 +56,7 @@ class Menu extends Component {
         })  
     }
 
-    exitMenu(classFocused) {
+    exitMenu() {
       document.getElementById("menu").style.width = '10%'; //recolhe o menu 
       document.removeEventListener('keydown', this.handleKeyPress, true);
       
@@ -64,7 +64,7 @@ class Menu extends Component {
         focusedItemIndex : 1 //reset index
       })
       
-      if(document.getElementsByClassName("destaque")[0]) {
+      if(document.getElementsByClassName("destaque")[0].style.display !== "none") {
         document.getElementById("button1").classList.add(classFocused); //foca em destaque
         this.props.callback('destaque'); 
       } else {
