@@ -1,0 +1,10 @@
+.videoItem{
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.videoCategory{
+    font-weight: bold;
+    padding: 50% 0 0 5%;
+}

@@ -1,0 +1,28 @@
+.menu{
+    position: relative;
+    background-color: black;
+    width: 10%;
+    height: 100%;
+    transition: width .4s;
+}
+
+.menu.is-nav-open{
+    width: 25%;
+}
+
+.line{
+    position: absolute;
+    background-color: #ffffff;
+    width: 1%;
+    height: 100%;
+}
+
+.areaMenu{
+    position: absolute;
+    width: 99%;
+    height: 70%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 1%;
+}

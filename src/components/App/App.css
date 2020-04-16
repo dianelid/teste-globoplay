@@ -1,0 +1,50 @@
+.app {
+  margin: 0;
+	padding: 0;
+  position:relative;
+  font-family: Arial;
+  color: #f1f1f1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: exclusion;
+  background-color: #666768;
+}
+
+.titleApp{
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 10%;
+  height: 5%;
+  font-weight: 600;
+}
+
+/*HD screen*/
+@media screen and (max-width: 1280px){
+  .app{width: 1280px; height: 720px;}
+  .titleApp{font-size: 26.66px;}
+  .titleMenu{font-size: 23.33px;}
+  .descriptionProg{font-size: 25.33px;}
+  .buttonProg{font-size: 26.66px; border-radius: 6.66px;}
+  .titleListVideos{font-size: 23.33px;}
+  .videoCategory{font-size: 18.66px;}
+  .videoItem{width: 266px; height: 172.8px; margin-left: 28px;}
+  .focusVideoItem{left: 24.66px; width: 266px; height: 174px; border-width: 4px;}
+  .videoDescription{font-size: 23.33px;}
+  .category{font-size: 33.33px;}
+}
+
+/*Full HD screen*/
+@media screen and (min-width: 1281px){
+  .app{width: 1920px; height: 1080px;}
+  .titleApp{font-size: 40px;}
+  .titleMenu{font-size: 35px;}
+  .descriptionProg{font-size: 38px;}
+  .buttonProg{font-size: 40px; border-radius: 10px;}
+  .titleListVideos{font-size: 35px;}
+  .videoCategory{font-size: 28px;}
+  .videoItem{width: 397px; height: 259.2px; margin-left: 43px;}
+  .focusVideoItem{left: 37px; width: 399px; height: 261px; border-width: 6px;}
+  .videoDescription{font-size: 35px;}
+  .category{font-size: 50px;}
+}
