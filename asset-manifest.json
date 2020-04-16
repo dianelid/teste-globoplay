@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/teste-globoplay/static/css/main.a22cf07d.chunk.css",
-    "main.js": "/teste-globoplay/static/js/main.fe7ce89c.chunk.js",
-    "main.js.map": "/teste-globoplay/static/js/main.fe7ce89c.chunk.js.map",
-    "runtime-main.js": "/teste-globoplay/static/js/runtime-main.811c6199.js",
-    "runtime-main.js.map": "/teste-globoplay/static/js/runtime-main.811c6199.js.map",
-    "static/js/2.8a874b7d.chunk.js": "/teste-globoplay/static/js/2.8a874b7d.chunk.js",
-    "static/js/2.8a874b7d.chunk.js.map": "/teste-globoplay/static/js/2.8a874b7d.chunk.js.map",
-    "index.html": "/teste-globoplay/index.html",
-    "precache-manifest.7ddb169fe2f261e4e92f597304f01835.js": "/teste-globoplay/precache-manifest.7ddb169fe2f261e4e92f597304f01835.js",
-    "service-worker.js": "/teste-globoplay/service-worker.js",
-    "static/css/main.a22cf07d.chunk.css.map": "/teste-globoplay/static/css/main.a22cf07d.chunk.css.map",
-    "static/js/2.8a874b7d.chunk.js.LICENSE.txt": "/teste-globoplay/static/js/2.8a874b7d.chunk.js.LICENSE.txt"
+    "main.css": "/~m2arch/teste-globoplay/static/css/main.a22cf07d.chunk.css",
+    "main.js": "/~m2arch/teste-globoplay/static/js/main.b75179e4.chunk.js",
+    "main.js.map": "/~m2arch/teste-globoplay/static/js/main.b75179e4.chunk.js.map",
+    "runtime-main.js": "/~m2arch/teste-globoplay/static/js/runtime-main.f748f651.js",
+    "runtime-main.js.map": "/~m2arch/teste-globoplay/static/js/runtime-main.f748f651.js.map",
+    "static/js/2.8a874b7d.chunk.js": "/~m2arch/teste-globoplay/static/js/2.8a874b7d.chunk.js",
+    "static/js/2.8a874b7d.chunk.js.map": "/~m2arch/teste-globoplay/static/js/2.8a874b7d.chunk.js.map",
+    "index.html": "/~m2arch/teste-globoplay/index.html",
+    "precache-manifest.fda13fb62a09c662216bc645cf7d725c.js": "/~m2arch/teste-globoplay/precache-manifest.fda13fb62a09c662216bc645cf7d725c.js",
+    "service-worker.js": "/~m2arch/teste-globoplay/service-worker.js",
+    "static/css/main.a22cf07d.chunk.css.map": "/~m2arch/teste-globoplay/static/css/main.a22cf07d.chunk.css.map",
+    "static/js/2.8a874b7d.chunk.js.LICENSE.txt": "/~m2arch/teste-globoplay/static/js/2.8a874b7d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.811c6199.js",
+    "static/js/runtime-main.f748f651.js",
     "static/js/2.8a874b7d.chunk.js",
     "static/css/main.a22cf07d.chunk.css",
-    "static/js/main.fe7ce89c.chunk.js"
+    "static/js/main.b75179e4.chunk.js"
   ]
 }
