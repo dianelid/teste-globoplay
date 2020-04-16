@@ -41,16 +41,6 @@ class App extends Component {
       })
   }
 
-  // componentWillUpdate(){
-  //   let bg = "https://s2.glbimg.com/1liph2qog-AGmgGI0hXMckn_Yb4=/0x720/https://s2.glbimg.com/T7K_c4W_to0gJiNRgJIBpJVBf2I=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2020/u/a/WCTZoCS3ulpaPbztyTlw/2020-748-realities-big-brother-brasil-20-tv-globo-background.jpg";
-
-  //   if(this.state.focusedScene === "trilho")
-  //     bg = this.state.videos[0].bg;
-    
-  //   if(this.state.bgApp !== bg)
-  //     this.setState({bgApp: bg});
-  // }
-
   render() {
     return (
       <div id="app" className="app" style={{backgroundImage: "url("+this.state.bgApp+")"}}>

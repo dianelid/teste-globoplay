@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Trilho.css';
 import VideoItem from './VideoItem/VideoItem';
 
+let animation = false;
+
 class Trilho extends Component {
     state = {
         focusedItemIndex: 0
@@ -28,7 +30,7 @@ class Trilho extends Component {
     }
 
     handleKeyPress = (event) => {
-      if (this.props.scene === 'trilho' && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
+      if (this.props.scene === 'trilho' && !animation && (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)) {
         event.preventDefault();
         this.navigationTrilho(event.keyCode);
       }
@@ -67,7 +69,7 @@ class Trilho extends Component {
       
       if(this.state.focusedItemIndex < this.props.videos.length-1) {
         index++;
-        left = (left - widthVideoItem) + "px";
+        left = left - widthVideoItem;
       } else {
         index = 0;
         left = 0;
@@ -77,7 +79,23 @@ class Trilho extends Component {
         focusedItemIndex: index,
       });
 
-      element.style.left = left;
+      this.rightAnimation(element, left);
+    }
+
+    rightAnimation(element, left){console.log(animation);
+      if(!animation){
+        animation = true;
+        let leftAnimation = element.offsetLeft;
+        let animate = setInterval(function(){
+            if(leftAnimation > left) {
+              leftAnimation -= 9;
+              element.style.left = leftAnimation + "px";
+            } else {
+              clearInterval(animate);
+              animation = false;
+            }
+        }, 5);
+      }
     }
 
     leftNavigation(){
@@ -88,15 +106,31 @@ class Trilho extends Component {
         let left = element.offsetLeft;
 
         index--;
-        left = (left + widthVideoItem) + "px";
-        element.style.left = left;
-        
+        left = left + widthVideoItem;
+        this.leftAnimation(element, left);
+
         this.setState({
           focusedItemIndex: index,
         });
       } else {
         this.goToMenu();
       }      
+    }
+
+    leftAnimation(element, left){
+      if(!animation){
+        animation = true;
+        let leftAnimation = element.offsetLeft;
+        let animate = setInterval(function(){
+          if(leftAnimation < left) {
+            leftAnimation += 9;
+            element.style.left = leftAnimation + "px";
+          } else {
+            clearInterval(animate);
+            animation = false;
+          }
+        }, 5);
+      }
     }
 
     goToMenu(){
