@@ -4,10 +4,16 @@
   position:relative;
   font-family: Arial;
   color: #f1f1f1;
+  background-color: #000000;
+}
+
+.bg{
+  position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: exclusion;
   background-color: #666768;
+  transition: opacity 0.5s;
 }
 
 .titleApp{
@@ -22,6 +28,7 @@
 /*HD screen*/
 @media screen and (max-width: 1280px){
   .app{width: 1280px; height: 720px;}
+  .bg{width: 1280px; height: 720px;}
   .titleApp{font-size: 26.66px;}
   .titleMenu{font-size: 23.33px;}
   .descriptionProg{font-size: 25.33px;}
@@ -37,6 +44,7 @@
 /*Full HD screen*/
 @media screen and (min-width: 1281px){
   .app{width: 1920px; height: 1080px;}
+  .bg{width: 1920px; height: 1080px;}
   .titleApp{font-size: 40px;}
   .titleMenu{font-size: 35px;}
   .descriptionProg{font-size: 38px;}

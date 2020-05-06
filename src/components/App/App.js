@@ -7,6 +7,8 @@ import Trilho from '../Trilho/Trilho';
 class App extends Component {
   state = {
     focusedScene: "destaque",
+    lastFocusDestaque: '',
+    lastFocusMenu: 1,
     bgApp: "https://s2.glbimg.com/1liph2qog-AGmgGI0hXMckn_Yb4=/0x720/https://s2.glbimg.com/T7K_c4W_to0gJiNRgJIBpJVBf2I=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2020/u/a/WCTZoCS3ulpaPbztyTlw/2020-748-realities-big-brother-brasil-20-tv-globo-background.jpg",
     logo: "https://logodownload.org/wp-content/uploads/2018/04/bbb-logo-big-brother-brasil-logo-16.png",
     textDescription: "Acompanhe 24h ao vivo a casa mais vigiada do Brasil",
@@ -41,13 +43,31 @@ class App extends Component {
       })
   }
 
+  updateLastFocusDestaque(buttonFocus) {
+      this.setState({
+        lastFocusDestaque : buttonFocus
+      })
+  }
+
+  updateLastFocusMenu(menuItemFocus) {
+    this.setState({
+      lastFocusMenu : menuItemFocus
+    })
+}
+
+componentDidUpdate(prevProps, prevState){
+  if(prevState.focusedScene !== this.state.focusedScene)
+  console.log(this.state.focusedScene);
+}
+
   render() {
     return (
-      <div id="app" className="app" style={{backgroundImage: "url("+this.state.bgApp+")"}}>
+      <div id="app" className="app">
+        <div id="bg" className="bg" style={{backgroundImage: "url("+this.state.bgApp+")"}}></div> 
         <div className="titleApp">globoplay</div>
-        <Destaque logo={this.state.logo} description={this.state.textDescription} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
-        <Trilho videos={this.state.videos} bgApp={this.state.bgApp} scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
-        <Menu scene={this.state.focusedScene} callback={this.updateScene.bind(this)}/>
+        <Destaque logo={this.state.logo} description={this.state.textDescription} scene={this.state.focusedScene} callback={this.updateScene.bind(this)} updateLastFocus={this.updateLastFocusDestaque.bind(this)} lastFocusMenu={this.state.lastFocusMenu}/>
+        <Trilho videos={this.state.videos} bgApp={this.state.bgApp} scene={this.state.focusedScene} callback={this.updateScene.bind(this)} lastFocusDestaque={this.state.lastFocusDestaque} lastFocusMenu={this.state.lastFocusMenu}/>
+        <Menu scene={this.state.focusedScene} lastFocusDestaque={this.state.lastFocusDestaque} callback={this.updateScene.bind(this)} updateLastFocus={this.updateLastFocusMenu.bind(this)}/>
       </div>
     )
   }

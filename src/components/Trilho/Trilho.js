@@ -27,10 +27,9 @@ class Trilho extends Component {
 
     goToDestaque(){
       this.hideTrilho();
-      document.getElementById("button1").classList.add("focusedItem"); //foca em destaque
+      document.getElementById(this.props.lastFocusDestaque).classList.add("focusedItem"); //foca em destaque
       this.props.callback('destaque');
-      document.getElementById("app").style.backgroundImage = "url("+this.props.bgApp+")";
-      document.removeEventListener('keydown', this.handleKeyPress, true);
+      document.getElementById("bg").style.backgroundImage = "url("+this.props.bgApp+")";
     }
 
     hideTrilho(){
@@ -89,9 +88,8 @@ class Trilho extends Component {
     goToMenu(){
       document.getElementsByClassName("focusVideoItem")[0].style.display = "none"; //remover foco atual
       document.getElementById("menu").classList.add("is-nav-open"); //expande o menu
-      document.getElementsByClassName("menuItem")[1].classList.add("focusedItem"); //foca no menu item 2
+      document.getElementsByClassName("menuItem")[this.props.lastFocusMenu].classList.add("focusedItem"); //foca no menu item 
       this.props.callback('menu');
-      document.removeEventListener('keydown', this.handleKeyPress, true);
     }
 
     componentDidMount(){
@@ -107,8 +105,13 @@ class Trilho extends Component {
 
     componentDidUpdate() {
       if (this.props.scene === 'trilho'){
-        document.getElementById("app").style.backgroundImage = "url("+this.props.videos[this.state.focusedItemIndex].bg+")"; //altera bg do app
-        document.getElementById("category").textContent = this.props.videos[this.state.focusedItemIndex].category; //altera o título da categoria
+        document.getElementById("bg").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("bg").style.backgroundImage = "url("+this.props.videos[this.state.focusedItemIndex].bg+")"; //altera bg do app
+          document.getElementById("category").textContent = this.props.videos[this.state.focusedItemIndex].category; //altera o título da categoriax
+          document.getElementById("bg").style.opacity = "1";
+        }, 500);
+
         document.addEventListener('keydown', this.handleKeyPress, true);
       }
     }

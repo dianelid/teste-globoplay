@@ -38,19 +38,16 @@ class Menu extends Component {
       if(this.state.focusedItemIndex !== newIndex)
         this.setState({
           focusedItemIndex : newIndex
-        })  
+        })
+        
+        this.props.updateLastFocus(this.state.focusedItemIndex);
     }
 
     exitMenu() {
       document.getElementById("menu").classList.remove("is-nav-open"); //expande o menu
-      document.removeEventListener('keydown', this.handleKeyPress, true);
-      
-      this.setState({
-        focusedItemIndex : 1 //reset index
-      })
       
       if(document.getElementsByClassName("destaque")[0].style.display !== "none") {
-        document.getElementById("button1").classList.add(classFocused); //foca em destaque
+        document.getElementById(this.props.lastFocusDestaque).classList.add(classFocused); //foca em destaque
         this.props.callback('destaque'); 
       } else {
         document.getElementsByClassName("focusVideoItem")[0].style.display = "block"; //foca no trilho
